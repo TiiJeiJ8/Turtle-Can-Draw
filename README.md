@@ -9,10 +9,10 @@ It's slow but intresting...
 Very very slow.......
 It takes four and a half hours to finish drawing half of an 800 by 800 resolution image...
 
-Plan:
-    Trying to increase drawing speed and keep learning.
-
 Versions:
+V1.0.6 (28.11.2024):
+    Optimized image loading and drawing annotations, clarified layout and functional descriptions. Updated the drawing logic, adopted block processing to improve drawing efficiency, adjusted the relevant code structure and comments to make it clearer and easier to understand.
+
 V1.0.5 (28.11.2024):
     the UI design is optimized to improve the user experience. Algorithm logic is optimizing.
 
