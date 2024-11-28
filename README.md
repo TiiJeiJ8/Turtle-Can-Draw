@@ -13,9 +13,12 @@ Plan:
     Trying to increase drawing speed and keep learning.
 
 Versions:
+V1.0.5 (28.11.2024):
+    the UI design is optimized to improve the user experience. Algorithm logic is optimizing.
+
 V1.0.4 (28.11.2024):  
     Add more restrictions to optimize drawing logic(Optimize the logic of skipping for white pixels, drawing logic and turtle screen setup)
-    
+
 V1.0.3 (28.11.2024):  
     Temporarily remove multiple tortoise synchornization drawing and add restrictions to optimize drawing logic.
 
