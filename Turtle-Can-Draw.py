@@ -54,11 +54,11 @@ class ImageRepaintApp(QMainWindow):
         turtle_screen.title("Turtle Drawing")
         turtle_screen.setworldcoordinates(-width // 2, -height // 2, width // 2, height // 2)
 
-        turtle.speed(0)
+        turtle.speed(0) # Fastest speed
         turtle.clear()
         turtle.penup()
 
-        # Draw layer by layer, not pixel by pixel
+        # Draw with multiple turtles
         for y in range(height):
             for x in range(width):
                 r, g, b = pixels[x, y]
@@ -66,9 +66,12 @@ class ImageRepaintApp(QMainWindow):
                 if (r, g, b) == (255, 255, 255):
                     continue
 
-                # Move the turtle to the pixel's position (only if it’s drawing)
+                # Set pencil color
+                turtle.pencolor(r / 255, g / 255, b / 255)
+                
+                # Move to position and draw a bigger dot
                 turtle.goto(x - width // 2, height // 2 - y)
-                turtle.dot(1)
+                turtle.dot(3) # Increase the size of the dot
 
         turtle.done()
 

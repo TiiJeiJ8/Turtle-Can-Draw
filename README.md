@@ -6,6 +6,9 @@ Overall Workflow:
 
 It's slow but intresting...
 
+Very very slow.......
+It takes four and a half hours to finish drawing half of an 800 by 800 resolution image...
+
 Plan:
     Trying to increase drawing speed and keep learning.
 
