@@ -9,7 +9,7 @@ class ImageRepaintApp(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Turtle can Draw :)")
+        self.setWindowTitle("Turtle can Draw  :)")
         self.setGeometry(100, 100, 800, 600)
 
         # Vertical layout
@@ -25,10 +25,6 @@ class ImageRepaintApp(QMainWindow):
         self.load_button.clicked.connect(self.load_image)
         layout.addWidget(self.load_button)
 
-        # Label to display the time taken
-        self.time_label = QLabel("Time taken: 0 s", self)
-        layout.addWidget(self.time_label)
-
         # Set container and layout
         container = QWidget()
         container.setLayout(layout)
@@ -42,10 +38,6 @@ class ImageRepaintApp(QMainWindow):
                 pixmap = QPixmap(file_path)
                 self.image_label.setPixmap(pixmap.scaled(400, 400))
 
-                # Start the timer
-                timer = QElapsedTimer()
-                timer.start()
-
                 # Transform the image into RGB and redraw with Turtle
                 img = Image.open(file_path).convert("RGB")
                 width, height = img.size
@@ -54,10 +46,6 @@ class ImageRepaintApp(QMainWindow):
                 # Start Turtle drawing
                 self.turtle_drawing(width, height, pixels)
 
-                # Calculate elapsed time
-                elapsed_time = timer.elapsed()
-                self.time_label.setText(f"Time taken: {elapsed_time / 1000:.2f} s")
-
             except Exception as e:
                 print(f"Error loading image: {e}")
 
@@ -65,29 +53,23 @@ class ImageRepaintApp(QMainWindow):
         # Create a new Turtle screen
         turtle_screen = turtle.Screen()
         turtle_screen.title("Turtle Drawing")
-
-        # Set the world coordinates based on image size
         turtle_screen.setworldcoordinates(-width // 2, -height // 2, width // 2, height // 2)
 
-        # Set Turtle window size based on image
-        turtle_screen.setup(width + 50, height + 50)  # Adding some margin for the window
+        turtle.speed(0)
+        turtle.clear()
+        turtle.penup()
 
-        # Create multiple turtles
-        turtles = [turtle.Turtle() for _ in range(5)]  # Create 5 turtles
-        for t in turtles:
-            t.speed(0)  # Set to the fastest speed
-            t.penup()
-
-        # Draw with multiple turtles
         for y in range(height):
             for x in range(width):
                 r, g, b = pixels[x, y]
-                # Choose a turtle based on the x coordinate
-                t = turtles[x % len(turtles)]  # Cycle through turtles
-                t.pencolor(r / 255, g / 255, b / 255)
-                t.goto(x - width // 2, height // 2 - y)
-                t.pendown()
-                t.dot(1)
+                # Check if the color is white
+                if (r, g, b) == (255, 255, 255):
+                    continue  # Skip white pixels
+
+                turtle.pencolor(r / 255, g / 255, b / 255)
+                turtle.goto(x - width // 2, height // 2 - y)
+                turtle.pendown()
+                turtle.dot(1)
 
         turtle.done()
 
