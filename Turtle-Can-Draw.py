@@ -3,7 +3,6 @@ import turtle
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton, QVBoxLayout, QWidget, QFileDialog
 from PyQt5.QtGui import QPixmap
 from PIL import Image
-from PyQt5.QtCore import QElapsedTimer
 
 class ImageRepaintApp(QMainWindow):
     def __init__(self):
@@ -59,16 +58,16 @@ class ImageRepaintApp(QMainWindow):
         turtle.clear()
         turtle.penup()
 
+        # Draw layer by layer, not pixel by pixel
         for y in range(height):
             for x in range(width):
                 r, g, b = pixels[x, y]
-                # Check if the color is white
+                # Skip white pixels
                 if (r, g, b) == (255, 255, 255):
-                    continue  # Skip white pixels
+                    continue
 
-                turtle.pencolor(r / 255, g / 255, b / 255)
+                # Move the turtle to the pixel's position (only if it’s drawing)
                 turtle.goto(x - width // 2, height // 2 - y)
-                turtle.pendown()
                 turtle.dot(1)
 
         turtle.done()

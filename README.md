@@ -1,5 +1,8 @@
 # Turtle Can Draw
- Use Deep learning and Turtle(Python) to redraw the picture
+Overall Workflow:
+    The program opens a dialog to load an image and then displays it in the PyQt5 window.
+    Once the image is loaded, it uses the Pillow library to read the image data.
+    The Turtle library is then employed to recreate the image on its canvas, skipping any white pixels to avoid unnecessary drawing.
 
 It's slow but intresting...
 
