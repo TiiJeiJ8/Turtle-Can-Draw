@@ -65,24 +65,29 @@ class ImageRepaintApp(QMainWindow):
         # Create a new Turtle screen
         turtle_screen = turtle.Screen()
         turtle_screen.title("Turtle Drawing")
-        
+
         # Set the world coordinates based on image size
         turtle_screen.setworldcoordinates(-width // 2, -height // 2, width // 2, height // 2)
-        
+
         # Set Turtle window size based on image
         turtle_screen.setup(width + 50, height + 50)  # Adding some margin for the window
 
-        turtle.speed(0)
-        turtle.clear()
-        turtle.penup()
+        # Create multiple turtles
+        turtles = [turtle.Turtle() for _ in range(5)]  # Create 5 turtles
+        for t in turtles:
+            t.speed(0)  # Set to the fastest speed
+            t.penup()
 
+        # Draw with multiple turtles
         for y in range(height):
             for x in range(width):
                 r, g, b = pixels[x, y]
-                turtle.pencolor(r / 255, g / 255, b / 255)
-                turtle.goto(x - width // 2, height // 2 - y)
-                turtle.pendown()
-                turtle.dot(1)
+                # Choose a turtle based on the x coordinate
+                t = turtles[x % len(turtles)]  # Cycle through turtles
+                t.pencolor(r / 255, g / 255, b / 255)
+                t.goto(x - width // 2, height // 2 - y)
+                t.pendown()
+                t.dot(1)
 
         turtle.done()
 
