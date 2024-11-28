@@ -9,7 +9,13 @@ It's slow but intresting...
 Very very slow.......
 It takes four and a half hours to finish drawing half of an 800 by 800 resolution image...
 
+Now with new method, it becomes fast seemingly.
+
 Versions:
+V1.0.7 (28.11.2024)---Vital :
+    Seperate a simple version to draw pixelation work. In the main program, image processing is carried out through edge detection and contour recognition, the slider function of adjusting the rendering resolution is added to control the rendering accuracy, and the interactive interface is optimized to improve the interactive epxperience.
+    With this update, the redraw speed has now reached new level and the process of the redrawing is more ornamental!
+
 V1.0.6 (28.11.2024):
     Optimized image loading and drawing annotations, clarified layout and functional descriptions. Updated the drawing logic, adopted block processing to improve drawing efficiency, adjusted the relevant code structure and comments to make it clearer and easier to understand.
 
