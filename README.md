@@ -12,7 +12,10 @@ It takes four and a half hours to finish drawing half of an 800 by 800 resolutio
 Now with new method, it becomes fast seemingly.
 
 Versions:
-V1.0.7 (28.11.2024)---Vital :
+V1.0.8 (29.11.2024):
+    Abandon the latest drawing version that uses edge and contour detection, as it is in the wrong direction. Use the original S1mpleVersion version as the new main version for this update. Of course, if the input image is simple and has clear contours, using a version with edge detection can provide a more unique experience!
+
+V1.0.7 (28.11.2024):
     Seperate a simple version to draw pixelation work. In the main program, image processing is carried out through edge detection and contour recognition, the slider function of adjusting the rendering resolution is added to control the rendering accuracy, and the interactive interface is optimized to improve the interactive epxperience.
     With this update, the redraw speed has now reached new level and the process of the redrawing is more ornamental!
 
